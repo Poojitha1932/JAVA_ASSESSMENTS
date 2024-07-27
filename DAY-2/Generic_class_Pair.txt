@@ -1,0 +1,46 @@
+public class Pair<T, U> {
+    // Private fields to hold the two objects
+    private T first;
+    private U second;
+
+    public Pair(T first, U second) {
+        this.first = first;
+        this.second = second;
+    }
+    // Getter method for the first object
+    public T getFirst() {
+        return first;
+    }
+    // Setter method for the first object
+    public void setFirst(T first) {
+        this.first = first;
+    }
+    // Getter method for the second object
+    public U getSecond() {
+        return second;
+    }
+    // Setter method for the second object
+    public void setSecond(U second) {
+        this.second = second;
+    }
+    // Main method to test the Pair class
+    public static void main(String[] args) {
+        // Create a Pair of Integer and String
+        Pair<Integer, String> pair = new Pair<>(1, "one");
+        // Print the original pair
+        System.out.println("First: " + pair.getFirst() + ", Second: " + pair.getSecond());
+
+        // Set new values for the pair
+        pair.setFirst(2);
+        pair.setSecond("two");
+
+        // Print the updated pair
+        System.out.println("Updated First: " + pair.getFirst() + ", Updated Second: " + pair.getSecond());
+
+        // Create a Pair of Double and Boolean
+        Pair<Double, Boolean> anotherPair = new Pair<>(3.14, true);
+
+        // Print the new pair
+        System.out.println("First: " + anotherPair.getFirst() + ", Second: " + anotherPair.getSecond());
+    }
+}
