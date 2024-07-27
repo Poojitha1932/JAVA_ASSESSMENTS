@@ -1,0 +1,52 @@
+public class Circle {
+    // Private field for the radius
+    private double radius;
+
+    // Constructor to initialize the radius
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Getter method for radius
+    public double getRadius() {
+        return radius;
+    }
+
+    // Setter method for radius
+    public void setRadius(double radius) {
+        if (radius >= 0) {
+            this.radius = radius;
+        } else {
+            System.out.println("Radius cannot be negative.");
+        }
+    }
+
+    // Method to calculate the area of the circle
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to calculate the circumference of the circle
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+
+    // Main method to test the Circle class
+    public static void main(String[] args) {
+        // Create an instance of Circle with radius 5
+        Circle circle = new Circle(5);
+
+        // Print the area and circumference
+        System.out.println("Radius: " + circle.getRadius());
+        System.out.println("Area: " + circle.calculateArea());
+        System.out.println("Circumference: " + circle.calculateCircumference());
+
+        // Change the radius
+        circle.setRadius(10);
+
+        // Print the updated area and circumference
+        System.out.println("Updated Radius: " + circle.getRadius());
+        System.out.println("Updated Area: " + circle.calculateArea());
+        System.out.println("Updated Circumference: " + circle.calculateCircumference());
+    }
+}
