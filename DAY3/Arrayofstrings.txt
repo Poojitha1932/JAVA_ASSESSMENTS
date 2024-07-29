@@ -1,0 +1,18 @@
+public class WriteArrayToFile {
+
+    public static void main(String[] args) {
+        // Directly passing the array of strings to the method call
+        simulateFileWriting(new String[] {
+            "I'm a btech student.",
+            "I'm an Indian..!",
+            "I miss my bestie rn..."
+           
+        });
+    }
+   
+    public static void simulateFileWriting(String[] strings) {
+        for (String str : strings) {
+            System.out.println(str);
+        }
+    }
+}
