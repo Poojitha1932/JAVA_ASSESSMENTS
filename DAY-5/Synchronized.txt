@@ -1,0 +1,56 @@
+class Counter {
+    private int count = 0;
+
+    // Synchronized method to increment the counter
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+class CounterIncrementer implements Runnable {
+    private Counter counter;
+
+    public CounterIncrementer(Counter counter) {
+        this.counter = counter;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            counter.increment();
+        }
+    }
+}
+
+// Main class to create and start the threads
+public class Main {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+
+        // Create multiple CounterIncrementer instances
+        Runnable task1 = new CounterIncrementer(counter);
+        Runnable task2 = new CounterIncrementer(counter);
+
+        // Create and start two threads
+        Thread thread1 = new Thread(task1);
+        Thread thread2 = new Thread(task2);
+
+        thread1.start();
+        thread2.start();
+
+        // Wait for both threads to finish
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            System.err.println("Thread interrupted: " + e.getMessage());
+        }
+
+        // Print the final value of the counter
+        System.out.println("Final counter value: " + counter.getCount());
+    }
+}
